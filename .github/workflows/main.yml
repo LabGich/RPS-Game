@@ -1,0 +1,18 @@
+name: Update Built By
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-built-by:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Built By
+        run: |
+          echo "![Built by](https://img.shields.io/badge/Built%20by-GitHub-success)" >> README.md
+          git config user.name "LabGich"
+          git config user.email "labradorgichohi@gmail.com"
+          git add README.md
+          git commit -m "Update Built By"
+          git push
